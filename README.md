@@ -1,6 +1,6 @@
-## Getting Started
+# Objective
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Project aimed to save code material from [SOLID with JAVA](https://cursos.alura.com.br/course/solid-orientacao-objetos-java) course.
 
 ## Folder Structure
 
