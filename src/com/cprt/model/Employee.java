@@ -9,7 +9,7 @@ public class Employee{
     private String cpf;
     private JobRole jobRole;
     private BigDecimal monthlySalary;
-    private LocalDate lastSalaryUpdate;
+    private LocalDate lastSalaryUpdateDate;
 
     public Employee(final String name, final String cpf, final JobRole jobRole, final BigDecimal monthlySalary) {
         this.name = name;
@@ -20,7 +20,7 @@ public class Employee{
 
     public void updateSalary(final BigDecimal newSalary){
         this.monthlySalary = newSalary;
-        this.lastSalaryUpdate = LocalDate.now();
+        this.lastSalaryUpdateDate = LocalDate.now();
     }
 
     public String getName() {
@@ -44,14 +44,14 @@ public class Employee{
     public BigDecimal getMonthlySalary() {
         return monthlySalary;
     }
-    public LocalDate getLastSalaryUpdate() {
-        return lastSalaryUpdate;
+    public LocalDate getLastSalaryUpdateDate() {
+        return lastSalaryUpdateDate;
     }
    
     @Override
     public String toString() {
         return "Employee [name=" + name + ", cpf=" + cpf + ", jobRole=" + jobRole + ", monthlySalary=" + monthlySalary
-                + ", lastSalaryUpdate=" + lastSalaryUpdate + "]";
+                + ", lastSalaryUpdate=" + lastSalaryUpdateDate + "]";
     }
 
 }
