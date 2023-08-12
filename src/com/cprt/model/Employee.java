@@ -3,55 +3,39 @@ package com.cprt.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class Employee{
+public class Employee {
 
-    private String name;
-    private String cpf;
-    private JobRole jobRole;
-    private BigDecimal monthlySalary;
+    private PersonalData personalData;
     private LocalDate lastSalaryUpdateDate;
 
     public Employee(final String name, final String cpf, final JobRole jobRole, final BigDecimal monthlySalary) {
-        this.name = name;
-        this.cpf = cpf;
-        this.jobRole = jobRole;
-        this.monthlySalary = monthlySalary;
+        this.personalData = new PersonalData(name, cpf, jobRole, monthlySalary);
     }
 
-    public void updateSalary(final BigDecimal newSalary){
-        this.monthlySalary = newSalary;
+    public Employee(PersonalData personalData) {
+        this.personalData = personalData;
+    }
+
+    public PersonalData getPersonalData() {
+        return personalData;
+    }
+
+    public void updateSalary(final BigDecimal newSalary) {
+        this.personalData.setMonthlySalary(newSalary);
         this.lastSalaryUpdateDate = LocalDate.now();
     }
 
-    public String getName() {
-        return name;
-    }
-    public void setName(final String name) {
-        this.name = name;
-    }
-    public String getCpf() {
-        return cpf;
-    }
-    public void setCpf(final String cpf) {
-        this.cpf = cpf;
-    }
-    public JobRole getJobRole() {
-        return jobRole;
-    }
-    public void setJobRole(final JobRole jobRole) {
-        this.jobRole = jobRole;
-    }
-    public BigDecimal getMonthlySalary() {
-        return monthlySalary;
-    }
     public LocalDate getLastSalaryUpdateDate() {
         return lastSalaryUpdateDate;
     }
-   
+
+    public void promote(JobRole newRole) {
+        this.personalData.setJobRole(newRole);
+    }
+
     @Override
     public String toString() {
-        return "Employee [name=" + name + ", cpf=" + cpf + ", jobRole=" + jobRole + ", monthlySalary=" + monthlySalary
-                + ", lastSalaryUpdate=" + lastSalaryUpdateDate + "]";
+        return "Employee [personalData=" + personalData + ", lastSalaryUpdateDate=" + lastSalaryUpdateDate + "]";
     }
 
 }

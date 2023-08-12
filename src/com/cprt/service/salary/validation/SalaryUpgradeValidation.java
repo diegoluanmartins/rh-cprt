@@ -1,8 +1,8 @@
-package com.cprt.service.validation;
+package com.cprt.service.salary.validation;
 
 import com.cprt.model.Employee;
 
-public interface SalaryUpdateValidation {
+public interface SalaryUpgradeValidation {
 
     void validate(final Employee employee, final double percentage);
 

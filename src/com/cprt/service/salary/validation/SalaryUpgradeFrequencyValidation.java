@@ -1,12 +1,12 @@
-package com.cprt.service.validation;
+package com.cprt.service.salary.validation;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-import com.cprt.InvalidSalaryIncreaseException;
+import com.cprt.InvalidEmployeeUpdateException;
 import com.cprt.model.Employee;
 
-public class SalaryUpdateFrequencyValidation implements SalaryUpdateValidation {
+public class SalaryUpgradeFrequencyValidation implements SalaryUpgradeValidation {
 
     private static final double MIN_MONTH_BTWN_SALARY_UPDATE = 6;
     
@@ -15,7 +15,7 @@ public class SalaryUpdateFrequencyValidation implements SalaryUpdateValidation {
         LocalDate currentDate = LocalDate.now();
         Long currentMonthsBtwn = ChronoUnit.MONTHS.between(lastUpdate, currentDate);
         if(currentMonthsBtwn < MIN_MONTH_BTWN_SALARY_UPDATE){
-            throw new InvalidSalaryIncreaseException("Not enough months since last salary updated: " + MIN_MONTH_BTWN_SALARY_UPDATE + " > " + currentMonthsBtwn);
+            throw new InvalidEmployeeUpdateException("Not enough months since last salary upgrade: " + MIN_MONTH_BTWN_SALARY_UPDATE + " > " + currentMonthsBtwn);
         }
     }
 
