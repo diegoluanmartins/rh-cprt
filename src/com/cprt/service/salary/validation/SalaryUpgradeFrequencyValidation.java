@@ -15,7 +15,7 @@ public class SalaryUpgradeFrequencyValidation implements SalaryUpgradeValidation
         LocalDate currentDate = LocalDate.now();
         Long currentMonthsBtwn = lastUpdate == null ? MIN_MONTH_BTWN_SALARY_UPDATE : ChronoUnit.MONTHS.between(lastUpdate, currentDate);
         if(currentMonthsBtwn < MIN_MONTH_BTWN_SALARY_UPDATE){
-            throw new InvalidEmployeeUpdateException("Not enough months since last salary upgrade: " + MIN_MONTH_BTWN_SALARY_UPDATE + " > " + currentMonthsBtwn);
+            throw new InvalidEmployeeUpdateException("Not enough months since last salary upgrade: [min > current] " + MIN_MONTH_BTWN_SALARY_UPDATE + " > " + currentMonthsBtwn);
         }
     }
 
