@@ -11,7 +11,5 @@ public class PromotionRoleValidation implements PromotionValidation {
             throw new InvalidEmployeeUpdateException("Manager cannot be promoted");
         }
     }
-    
-    
 
 }

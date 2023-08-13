@@ -25,11 +25,11 @@ public class App {
     salaryUpgradeService.upgradeEmployeeSalary(emp, 4000, null);
     logger.log(Level.INFO, EMPLOYEE_LOG, emp);
     try {
-      salaryUpgradeService.upgradeEmployeeSalary(emp, 5650, null);  
+      salaryUpgradeService.upgradeEmployeeSalary(emp, 5650, null);
     } catch (Exception e) {
       logger.log(Level.WARNING, "Cannot upgrade salary again due to: {0}", e.toString());
     }
-    
+
     logger.log(Level.INFO, EMPLOYEE_LOG, emp);
   }
 
