@@ -8,12 +8,12 @@ import com.cprt.model.Employee;
 
 public class SalaryUpgradeFrequencyValidation implements SalaryUpgradeValidation {
 
-    private static final double MIN_MONTH_BTWN_SALARY_UPDATE = 6;
+    private static final long MIN_MONTH_BTWN_SALARY_UPDATE = 6;
     
     public void validate(Employee employee, double percentage){
         LocalDate lastUpdate = employee.getLastSalaryUpdateDate();
         LocalDate currentDate = LocalDate.now();
-        Long currentMonthsBtwn = ChronoUnit.MONTHS.between(lastUpdate, currentDate);
+        Long currentMonthsBtwn = lastUpdate == null ? MIN_MONTH_BTWN_SALARY_UPDATE : ChronoUnit.MONTHS.between(lastUpdate, currentDate);
         if(currentMonthsBtwn < MIN_MONTH_BTWN_SALARY_UPDATE){
             throw new InvalidEmployeeUpdateException("Not enough months since last salary upgrade: " + MIN_MONTH_BTWN_SALARY_UPDATE + " > " + currentMonthsBtwn);
         }
