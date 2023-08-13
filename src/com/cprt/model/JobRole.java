@@ -42,7 +42,7 @@ public enum JobRole {
         public JobRole getNextRole() {
             return MANAGER;
         }
-    },    
+    },
     MANAGER {
         @Override
         public JobRole getNextRole() {
